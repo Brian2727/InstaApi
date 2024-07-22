@@ -1,4 +1,4 @@
-package entitys;
+package com.gymbuddy.InstaApi.entitys;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
