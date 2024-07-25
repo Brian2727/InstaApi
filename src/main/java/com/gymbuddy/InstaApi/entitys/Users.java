@@ -8,6 +8,8 @@ import jakarta.persistence.Id;
 @Entity(name="Users")
 public class Users {
 	
+	
+	
 	@Id
 	@GeneratedValue
 	private int id;
