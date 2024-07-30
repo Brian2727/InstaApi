@@ -9,7 +9,7 @@ import com.gymbuddy.InstaApi.entitys.Users;
 public interface UserRepo extends CrudRepository<Users, Integer> {
 
 	Users save(Users user);
-	Users findByUserId(String userId);
-	Users deleteUsersByuserId(String userId);
+	Users findById(int id);
+	Users deleteUsersById(int id);
 	
 }

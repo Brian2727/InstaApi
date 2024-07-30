@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 public class errorLogService {
 
     @Autowired
-    errorLogRepo service;
+    errorLogRepo repo;
 
     public void errorLogSubmit(errorLog log) {
         System.out.println("errorLog");
-        service.save(log);
+        repo.save(log);
     }
 }

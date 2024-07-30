@@ -16,12 +16,12 @@ public class usersService {
 		return  userRepo.save(user);
 	}
 	
-	public Users displayUserMetaData(String userId) {
-		return userRepo.findByUserId(userId);
+	public Users displayUserMetaData(int id) {
+		return userRepo.findById(id);
 		 
 	}
 
-	public Users deleteUserMetaData(String userId) {
-		return userRepo.deleteUsersByuserId(userId);
+	public Users deleteUserMetaData(int id) {
+		return userRepo.deleteUsersById(id);
 	}
 }

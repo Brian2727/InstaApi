@@ -23,6 +23,10 @@ public class errorLog {
         HttpMethod = httpMethod;
     }
 
+    public errorLog() {
+
+    }
+
 
     public LocalDateTime getTimeStamp() {
         return timeStamp;

@@ -1,9 +1,13 @@
 package com.gymbuddy.InstaApi.entitys;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity(name="Users")
 public class Users {
@@ -15,12 +19,23 @@ public class Users {
 	private int id;
 
 	@Nonnull
-	private String userId;
 	private String userName;
 	private String fname;
 	private String lname;
 	private String profilePicture;
-	
+
+	@OneToMany(mappedBy = "user")
+	@JsonIgnore
+	private List<Post> posts;
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
 	public Users() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -29,20 +44,13 @@ public class Users {
 	public Users(int id, String userId, String userName, String fname, String lname, String profilePicture) {
 		super();
 		this.id = id;
-		this.userId = userId;
 		this.userName = userName;
 		this.fname = fname;
 		this.lname = lname;
 		this.profilePicture = profilePicture;
 	}
 
-	public String getUserId() {
-		return userId;
-	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
 
 	public String getUserName() {
 		return userName;
