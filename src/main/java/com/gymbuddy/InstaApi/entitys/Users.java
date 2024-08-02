@@ -2,27 +2,55 @@ package com.gymbuddy.InstaApi.entitys;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.annotation.Nonnull;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+import org.springframework.context.annotation.Role;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity(name="Users")
 public class Users {
-	
-	
-	
+
 	@Id
 	@GeneratedValue
 	private int id;
 
+	@Column(nullable = false,unique = true)
+    private String userName;
 	@Nonnull
-	private String userName;
+	private String password;
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "user_roles",
+			joinColumns = @JoinColumn(name = "users_id"),
+			inverseJoinColumns = @JoinColumn(name = "roles_id")
+	)
+	private Set<Roles> roles = new HashSet<>();
 	private String fname;
 	private String lname;
 	private String profilePicture;
+
+	public int getId() {
+		return id;
+	}
+
+	public Set<Roles> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Roles> roles) {
+		this.roles = roles;
+	}
+
+	@Nonnull
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(@Nonnull String password) {
+		this.password = password;
+	}
 
 	@OneToMany(mappedBy = "user")
 	@JsonIgnore
@@ -41,8 +69,9 @@ public class Users {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Users(int id, String userId, String userName, String fname, String lname, String profilePicture) {
+	public Users(int id, String userId, String userName, String fname, String lname, String profilePicture,String password) {
 		super();
+		this.password = password;
 		this.id = id;
 		this.userName = userName;
 		this.fname = fname;

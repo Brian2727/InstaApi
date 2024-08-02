@@ -18,6 +18,26 @@ public class errorLog {
     private String details;
     private String HttpMethod;
 
+    public void setTimeStamp(LocalDateTime timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public String getHttpMethod() {
+        return HttpMethod;
+    }
+
+    public void setHttpMethod(String httpMethod) {
+        HttpMethod = httpMethod;
+    }
+
     public errorLog(String httpMethod) {
 
         HttpMethod = httpMethod;
