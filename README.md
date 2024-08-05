@@ -1,4 +1,4 @@
-# <h1 align="center"> Instagram Back-end Application </h1>
+# <h1 align="center"> Social Media API </h1>
 ___ 
 <p align="center">
     <img alt="Java" src="https://img.shields.io/badge/Java->=8-darkblue.svg" />
