@@ -15,20 +15,22 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserController {
 	
 	@Autowired
 	usersService userService;
 	@Autowired
 	postService  postService;
-	
-	@PostMapping("")
-	private boolean submitUser(@RequestBody Users user) {
-		userService.submitMetaDataOfUser(user);
-		return true;
-		
-	}
+
+	// Removed this code since user creation will now be handled by the account endpoint.
+//	@PostMapping("")
+//	private boolean submitUser(@RequestBody Users user) {
+//		userService.submitMetaDataOfUser(user);
+//		return true;
+//
+//	}
+
 	@GetMapping("/{id}")
 	private Users getUser(@PathVariable("id") int id) {
 

@@ -1,6 +1,4 @@
 package com.gymbuddy.InstaApi.controllers;
-
-
 import com.gymbuddy.InstaApi.ErrorHandling.UserNotFoundException;
 import com.gymbuddy.InstaApi.Security.DTOs.FollowDTO;
 import com.gymbuddy.InstaApi.Security.DTOs.usernameDTO;
