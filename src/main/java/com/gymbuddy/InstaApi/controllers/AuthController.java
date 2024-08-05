@@ -6,7 +6,6 @@ import com.gymbuddy.InstaApi.entitys.Roles;
 import com.gymbuddy.InstaApi.entitys.Users;
 import com.gymbuddy.InstaApi.repository.UserRepo;
 import com.gymbuddy.InstaApi.repository.rolesRepo;
-import com.nimbusds.jose.proc.SecurityContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +13,10 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
-
-import static com.fasterxml.jackson.databind.type.LogicalType.Collection;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -69,3 +65,5 @@ public class AuthController {
         return new ResponseEntity<>(token.toString(), HttpStatus.OK);
     }
 }
+
+record JwtResponse(String token) {}

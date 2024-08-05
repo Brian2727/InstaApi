@@ -4,13 +4,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import org.springframework.context.annotation.Role;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Entity(name="Users")
-public class Users {
+public class Users implements UserDetails {
 
 	@Id
 	@GeneratedValue
@@ -43,9 +46,19 @@ public class Users {
 		this.roles = roles;
 	}
 
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return List.of();
+	}
+
 	@Nonnull
 	public String getPassword() {
 		return password;
+	}
+
+	@Override
+	public String getUsername() {
+		return "";
 	}
 
 	public void setPassword(@Nonnull String password) {
