@@ -226,7 +226,7 @@ The Instagram Backend Application utilizes a MySQL database to persist user data
 The database connection properties are specified in the `application.properties` file, including the database URL, username, and password. Here is an example configuration for MySQL:
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/InstagramDB
+spring.datasource.url=jdbc:mysql://localhost:3306/InstaAPI
 spring.datasource.username=your_username
 spring.datasource.password=your_password
 spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
